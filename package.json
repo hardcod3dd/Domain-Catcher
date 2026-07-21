@@ -1,0 +1,33 @@
+{
+  "name": "domain-catcher",
+  "version": "1.0.0",
+  "description": "Persistent certificate-transparency domain monitor with homoglyph detection",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardcod3dd/Domain-Catcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/hardcod3dd/Domain-Catcher/issues"
+  },
+  "homepage": "https://github.com/hardcod3dd/Domain-Catcher#readme",
+  "dependencies": {
+    "better-sqlite3": "^13.0.1",
+    "confusables": "^1.1.1",
+    "express": "^5.2.1",
+    "https-proxy-agent": "^9.1.0",
+    "multer": "^2.2.0",
+    "playwright-core": "^1.61.1",
+    "socks-proxy-agent": "^10.1.0",
+    "tldts": "^7.4.9",
+    "ws": "^8.21.1"
+  }
+}

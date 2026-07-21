@@ -1,0 +1,19 @@
+.filters{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr)) repeat(3,minmax(110px,.65fr)) auto;gap:9px;padding:12px 22px;border-bottom:1px solid var(--line);background:#fafbfc}
+.filters select{border:1px solid #d7dee8;border-radius:8px;padding:10px;background:#fff}
+.catch-row{grid-template-columns:96px minmax(185px,1.25fr) minmax(100px,.55fr) minmax(140px,.75fr) minmax(155px,.8fr) 90px auto;cursor:default}
+.intel strong,.whois-summary strong{display:block;font-size:13px}
+.intel small,.whois-summary small{display:block;color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.details-button{padding:8px 11px}
+.copy-domain{border:0;background:transparent;padding:2px 5px;color:var(--blue)}
+.copy-entry{border:0;background:transparent;padding:2px 0;color:var(--blue);font-size:11px}
+.chip .scope{margin-left:10px;border:1px solid var(--line);border-radius:5px;padding:4px;background:#fff;font-size:12px}
+.readable{display:grid;grid-template-columns:minmax(120px,.75fr) 1.25fr;margin:12px 0 0;font-size:12px}
+.readable dt,.readable dd{margin:0;padding:7px 8px;border-bottom:1px solid var(--line);word-break:break-word}.readable dt{color:var(--muted);font-weight:650;text-transform:capitalize}.readable dd{color:var(--ink)}
+.detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.favorite-button{border:0;background:transparent;padding:1px 3px;color:#c7ced9;font-size:18px;line-height:1}.favorite-button.active{color:#f2ad19}.favorite-filter{display:flex;align-items:center;gap:7px;padding:0 8px;white-space:nowrap}.favorite-filter input{width:17px;height:17px}
+.panel-tools{display:flex;align-items:center;gap:8px}.panel-tools input{width:280px}
+@media(max-width:700px){.panel-tools{align-items:stretch;flex-direction:column;margin-top:12px}.panel-tools input{width:100%}}
+.danger-zone{max-width:680px;margin-top:20px;padding:20px;border-color:#f1c7c7}.danger-zone h2{color:#b42318}.danger-zone button{margin-top:15px;background:#c9362b;border-color:#c9362b;color:#fff;font-weight:650}
+@media(max-width:1200px){.filters{grid-template-columns:repeat(3,1fr)}.catch-row{grid-template-columns:80px 1.2fr .6fr 1fr auto}.catch-row .whois-summary,.catch-row .status{display:none}}
+@media(max-width:900px){.catch-row{grid-template-columns:80px 1fr auto}.catch-row>:not(.thumb):not(.domain):not(.details-button){display:none}}
+@media(max-width:560px){.filters{grid-template-columns:1fr 1fr}}

@@ -1,0 +1,29 @@
+services:
+  domain-catcher:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATA_DIR: /app/data
+      SCREENSHOT_DIR: /app/screenshots
+      CERTSTREAM_URL: ws://certstream:8080/
+    volumes:
+      - domain-catcher-data:/app/data
+      - domain-catcher-screenshots:/app/screenshots
+    depends_on:
+      - certstream
+  certstream:
+    image: ghcr.io/reloading01/certstream-server-rust:latest
+    restart: unless-stopped
+    environment:
+      CERTSTREAM_CT_LOG_STATE_FILE: /data/state.json
+    volumes:
+      - certstream-state:/data
+    ports:
+      - "8080:8080"
+
+volumes:
+  domain-catcher-data:
+  domain-catcher-screenshots:
+  certstream-state:

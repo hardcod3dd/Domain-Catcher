@@ -1,0 +1,36 @@
+node_modules/
+data/
+screenshots/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+
+# Local databases, exports, logs, and runtime state
+*.sqlite
+*.sqlite-*
+*.db
+*.log
+domain-catches-*.json
+domain-catches-*.csv
+compose.override.yaml
+
+# IDE, Codex, and AI-assistant metadata
+.codex/
+.agents/
+.claude/
+.cursor/
+.continue/
+.roo/
+.windsurf/
+.aider*
+.ai/
+AGENTS.md
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
