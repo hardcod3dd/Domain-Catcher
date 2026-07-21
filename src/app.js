@@ -69,7 +69,7 @@ function listRoutes(table, field) {
 }
 listRoutes('keywords', 'value'); listRoutes('whitelist', 'domain');
 app.patch('/api/keywords/:id', (req, res) => {
-  const scope = req.body.match_scope === 'base' ? 'base' : 'all';
+  const scope = ['all', 'base', 'domain'].includes(req.body.match_scope) ? req.body.match_scope : 'all';
   const result = db.prepare('UPDATE keywords SET match_scope=? WHERE id=?').run(scope, req.params.id);
   result.changes ? res.json({ ok: true, match_scope: scope }) : res.status(404).json({ error: 'Keyword not found' });
 });

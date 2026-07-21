@@ -24,6 +24,11 @@ function matchDomain(domain, keywords) {
   for (const item of keywords) {
     const keyword = typeof item === 'string' ? item : item.value;
     const scope = typeof item === 'string' ? 'all' : item.match_scope;
+    if (scope === 'domain') {
+      const target = canonicalDomain(keyword);
+      if (target && (ascii === target || ascii.endsWith(`.${target}`))) return { keyword, type: 'exact-domain' };
+      continue;
+    }
     const candidateAscii = scope === 'base' ? (getDomain(ascii) || ascii) : ascii;
     const candidateUnicode = domainToUnicode(candidateAscii) || candidateAscii;
     const skeleton = normalize(candidateUnicode);

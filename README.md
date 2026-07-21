@@ -2,11 +2,13 @@
 
 Domain Catcher monitors Certificate Transparency logs for hostnames containing watched keywords. It detects direct and Unicode homoglyph matches, enriches captures with native WHOIS and IPinfo data, takes website screenshots, and stores everything locally.
 
+![Domain Catcher overview](docs/images/domain-catcher-overview.png)
+
 ## Features
 
 - Persistent CertStream background monitor
 - Exact and homoglyph keyword detection
-- Per-keyword matching across all hostname labels or only the base domain
+- Per-entry matching across all hostname labels, only the base domain, or one exact domain and its subdomains
 - Bulk keyword and domain-whitelist management
 - Native local `whois` lookups against the registrable domain
 - DNS and IPinfo country/ASN enrichment
@@ -14,6 +16,22 @@ Domain Catcher monitors Certificate Transparency logs for hostnames containing w
 - Searchable and filterable live overview
 - Favorites, screenshot gallery, JSON/CSV export, and JSON import
 - SQLite database and Docker-managed persistent volumes
+
+## Keyword matching modes
+
+Each watched entry has its own matching mode:
+
+- **Catch all** treats the value as a keyword and matches it anywhere in the hostname.
+- **Base domain only** searches for the keyword only within the registrable base domain, ignoring subdomain labels.
+- **Exact domain match** treats the value as a complete domain and captures only that domain and its subdomains.
+
+For example, an exact-domain entry of `google.com` captures `google.com`, `mail.google.com`, and `accounts.login.google.com`. It does not capture `mygoogle.com`, `google.com.evil.test`, or `google-example.com`.
+
+## Screenshot gallery
+
+Successful website captures are saved locally and displayed in the gallery. Selecting a gallery item opens the same detailed domain view available from the overview.
+
+![Domain Catcher screenshot gallery](docs/images/domain-catcher-gallery.png)
 
 ## Run with Docker
 

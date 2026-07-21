@@ -14,3 +14,10 @@ test('base-only scope ignores a keyword found only in a subdomain', () => {
   assert.deepEqual(matchDomain('login.google-example.com', [{ value: 'google', match_scope: 'base' }]), { keyword: 'google', type: 'exact' });
   assert.deepEqual(matchDomain('google.login.example.com', [{ value: 'google', match_scope: 'all' }]), { keyword: 'google', type: 'exact' });
 });
+test('exact domain scope matches only the domain and its subdomains', () => {
+  const filter = [{ value: 'google.com', match_scope: 'domain' }];
+  assert.deepEqual(matchDomain('google.com', filter), { keyword: 'google.com', type: 'exact-domain' });
+  assert.deepEqual(matchDomain('mail.accounts.google.com', filter), { keyword: 'google.com', type: 'exact-domain' });
+  assert.equal(matchDomain('mygoogle.com', filter), null);
+  assert.equal(matchDomain('google.com.evil.test', filter), null);
+});
